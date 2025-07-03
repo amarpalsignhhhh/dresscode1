@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dress Code - Premium Clothing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    /* Loading Screen Styles */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+    
+    .loading-logo {
+      width: 150px;
+      height: 150px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    .content {
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+    }
+    
+    .loaded .loading-screen {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .loaded .content {
+      opacity: 1;
+    }
+    
+    /* Main Content Styles */
+    body {
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    
+    header {
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #000;
+      color: #fff;
+    }
+    
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+    
+    .hero {
+      height: 90vh;
+      background: url('69.png') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 2s ease-in-out;
+    }
+    
+    .hero h2 {
+      font-size: 3rem;
+      background: rgba(0,0,0,0.5);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+    }
+    
+    .catalogue {
+      padding: 4rem 2rem;
+    }
+    
+    .catalogue h3 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .slider {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 1rem 0;
+    }
+    
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .slide {
+      flex: 0 0 auto;
+      width: 300px;
+      height: 400px;
+      background: #eee;
+      border-radius: 20px;
+      overflow: hidden;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .slide:hover {
+      transform: scale(1.05);
+    }
+    
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .cta {
+      text-align: center;
+      margin: 4rem 0;
+    }
+    
+    .cta a {
+      text-decoration: none;
+      background: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+    
+    .cta a:hover {
+      background: #222;
+    }
+    
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Main Content -->
+  
+  <!-- Hero Image Slider -->
+  <section class="hero" style="flex-direction: column;">
+    <div class="hero-slider" style="position: relative; width: 999px; max-width: 100%; margin: 0 auto;">
+     
+      <img class="hero-slide" src="3.jpg" alt="Hero Image 3" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+      <img class="hero-slide" src="4.png" alt="Hero Image 4" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+      <img class="hero-slide" src="5.png" alt="Hero Image 5" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+      <img class="hero-slide" src="6.png" alt="Hero Image 6" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+      <img class="hero-slide" src="7.jpg" alt="Hero Image 7" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+      <img class="hero-slide" src="8.jpg" alt="Hero Image 8" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+      <img class="hero-slide" src="ff.png" alt="Hero Image ff" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+      <img class="hero-slide" src="69.png" alt="Hero Side Image" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+ <img class="hero-slide" src="IMG-20250703-WA0014.jpg" alt="Hero Side Image" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+  <img class="hero-slide" src="IMG-20250703-WA0015.jpg" alt="Hero Side Image" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+   <img class="hero-slide" src="IMG-20250703-WA0017.jpg" alt="Hero Side Image" style="display: none; width: 100%; border-radius: 100px; box-shadow: 0 100px 100px rgba(0,0,0,0.5);">
+      <button id="hero-prev" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; cursor: pointer;">&#8592;</button>
+      <button id="hero-next" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; cursor: pointer;">&#8594;</button>
+    </div>
+    <h2 style="margin-top: 2rem;"></h2>
+  </section>
+
+    <section class="catalogue">
+      <h3>Explore Our Collection</h3>
+      <div class="slider">
+        <div class="slide"><img src="20.jpg" alt="Product 1"></div>
+        <div class="slide"><img src="21.jpg" alt="Product 2"></div>
+        <div class="slide"><img src="24.jpg" alt="Product 3"></div>
+        <div class="slide"><img src="25.jpg" alt="Product 4"></div>
+        <div class="slide"><img src="IMG-20250703-WA0011.jpg" alt="Product 5"></div>
+        <div class="slide"><img src="IMG-20250703-WA0012.jpg" alt="Product 6"></div>
+
+        
+
+        
+      </div>
+    </section>
+
+    <section class="about" style="padding: 4rem 2rem; background: #111; color: #fff;">
+  <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center;">About Us</h3>
+  <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+    <strong>Dress Code Clothing Pvt Ltd</strong> is a premier uniform and apparel manufacturing company based in Hyderabad, Telangana. With over 20 years of expertise in garment production, we’ve built a reputation for excellence and innovation :contentReference[oaicite:1]{index=1}.
+    <br><br>
+    Founded in 2012 (CIN: U52100RJ2012PTC041111), we specialize in designing, manufacturing, and supplying high‑quality uniforms across industries—including education, corporate, healthcare, hospitality, and government sectors :contentReference[oaicite:2]{index=2}.
+    <br><br>
+    Our vertically integrated facilities manage textile spinning, fabric production, pattern making, stitching, and finishing—all backed by rigorous quality control. We proudly produce millions of garments annually, delivering customizable uniforms with embroidered logos, tailored fits, and premium materials :contentReference[oaicite:3]{index=3}.
+    <br><br>
+    Today, Dress Code serves clients across seven states in India, employs over 5,000 skilled professionals, operates eleven factories, and manufactures more than 20 million garments per year :contentReference[oaicite:4]{index=4}.
+    With a commitment to reliability and craftsmanship, we’re Hyderabad’s trusted partner for uniform and apparel manufacturing.
+  </p>
+</section>
+
+
+    <section class="gallery" style="padding: 4rem 2rem; background: #000; color: #fff;">
+      <h3 style="font-size: 2.5rem; text-align: center; margin-bottom: 2rem;">Past Events Gallery</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+        <img src="2.jpg" style="width: 300px; border-radius: 10px;" alt="Gallery 2">
+        <img src="3.jpg" style="width: 300px; border-radius: 10px;" alt="Gallery 3">
+        <img src="4.png" style="width: 300px; border-radius: 10px;" alt="Gallery 4">
+        <img src="5.png" style="width: 300px; border-radius: 10px;" alt="Gallery 5">
+        <img src="IMG-20250703-WA0023.jpg" style="width: 300px; border-radius: 10px;" alt="Gallery 6">
+        <img src="IMG-20250703-WA0015.jpg" style="width: 300px; border-radius: 10px;" alt="Gallery 7">
+        <img src="IMG-20250703-WA0020.jpg" style="width: 300px; border-radius: 10px;" alt="Gallery 8">
+       <img src="IMG-20250703-WA0024.jpg" style="width: 300px; border-radius: 10px;" alt="Gallery 9">
+       <img src="IMG-20250703-WA0015.jpg" style="width: 300px; border-radius: 10px;" alt="Gallery 8">
+       <img src="IMG-20250703-WA0018.jpg" style="width: 300px; border-radius: 10px;" alt="Gallery 8">
+        
+        
+        
+    </section>
+
+    <section class="testimonials" style="padding: 4rem 2rem; background: #111; color: #fff;">
+      <h3 style="font-size: 2.5rem; text-align: center; margin-bottom: 2rem;">Testimonials</h3>
+      <div style="max-width: 900px; margin: auto;">
+        <blockquote style="margin-bottom: 2rem; font-style: italic;">"I got my wedding suit stitched from Dress Code and the fitting was impeccable! Highly recommend them for custom tailoring." – <strong>Umar R.</strong></blockquote>
+        <blockquote style="margin-bottom: 2rem; font-style: italic;">"Amazing collection and very helpful staff. They helped me choose the perfect festive outfit!" – <strong>Sameer A.</strong></blockquote>
+        <blockquote style="font-style: italic;">"The best fashion destination in Baramulla. Unique styles and great quality." – <strong>Bilal S.</strong></blockquote>
+      </div>
+    </section>
+
+    
+
+    <section class="cta">
+      <a href="https://wa.me/919876543210" target="_blank">Chat on WhatsApp</a>
+    </section>
+
+    <footer>
+      <p>Dress Code, </p>
+    </footer>
+  </div>
+
+  <script>
+    // Wait for the page to fully load
+    window.addEventListener('load', function() {
+      // Add a small delay to ensure the loading screen is visible for at least 1.5 seconds
+      setTimeout(function() {
+        document.body.classList.add('loaded');
+        
+        // Remove the loading screen from the DOM after the fade-out completes
+        setTimeout(function() {
+          document.querySelector('.loading-screen').remove();
+        }, 500); // Match this with the CSS transition duration
+      }, 1500);
+    });
+
+    // Hero slider functionality
+    (function() {
+      const slides = document.querySelectorAll('.hero-slide');
+      let current = 0;
+      function showSlide(idx) {
+        slides.forEach((img, i) => {
+          img.style.display = i === idx ? 'block' : 'none';
+        });
+      }
+      document.getElementById('hero-prev').onclick = function() {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+      };
+      document.getElementById('hero-next').onclick = function() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      };
+      showSlide(current);
+    })();
+  </script>
+</body>
+</html>
